@@ -1,0 +1,39 @@
+{% include 'main/header.html' %}
+<!DOCTYPE html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<title>Каталог</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container_prof">
+    <h2>Список товаров</h2>
+    <table>
+        <thead><th>Название</th><th>Цена</th><th></th></thead>
+        {% for i in data.cards %}
+        <tr>
+            <td>{{ i.product_id.name }}</td>
+            <td>{{ i.product_id.price }} рублей.</td>
+            <td>
+                <a href="card/delete/{{ i.product_id.product_id }}">Удалить</a>
+            </td>
+        </tr>я
+        {% endfor %}
+    </table>
+    <a class="nav_link" href="/card/create_order">Оформить заказ</a>
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+</body>
+</html>

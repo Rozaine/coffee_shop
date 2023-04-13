@@ -1,0 +1,37 @@
+{% include 'main/header.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<title>Каталог</title>
+</head>
+<body>
+
+<div class="container_sells">
+    <div class="wrapper">
+        {% for item in data.items %}
+        <div class="textcols-item1">
+            <div class="column_item">
+                <img class="img_cart" src="/media/{{item.image}}" width="250" height="420" alt="">
+                <h2 class="cart_name">{{item.name}}</h2>
+
+                {% if request.user.is_authenticated %}
+                <a class="btn_add_to_card_catalog" href="/catalog/{{ item.product_id }}">Добавить в корзину</a>
+                {% else %}
+                <a class="btn_add_to_card_catalog" href="/signin">Добавить в корзину</a>
+                {% endif %}
+
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

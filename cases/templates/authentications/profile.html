@@ -1,0 +1,39 @@
+{% include 'main/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+    <div class="container_prof">
+        <h1>Добро пожаловать {{ data.pups }}!</h1>
+        {% if request.user.is_superuser %}
+            <form method = "post" enctype="multipart/form-data">
+                <div class="form">
+               {% csrf_token %}
+               {{ data.form.as_p }}
+                </div>
+               <button type="submit"> Отправить</button>
+            </form>
+        {% else %}
+            <a class="nav_link" href="/logout">Выйти</a>
+        {% endif %}
+        <div>
+            <h2>История заказов:</h2>
+                <table>
+        <thead><th>Название</th><th>Цена</th><th></th></thead>
+        {% for i in data.cards %}
+        <tr>
+            <td>{{ i.product_id.name }}</td>
+            <td>{{ i.product_id.price }} рублей.</td>
+            <td>
+                <a href="card/delete/{{ i.product_id.product_id }}">Удалить</a>
+            </td>
+        </tr>я
+        {% endfor %}
+    </table>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% include 'main/header.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>MainPage</title>
+</head>
+<body>
+
+
+<div class="intro">
+    <img class="paper_cup" src="{% static 'images/cup_logo.png' %}" width="400" height="658" alt="">
+    <div class="container_intro">
+        <div class="intro_inner">
+            <h1 class="intro_title ">Закажи горячий КОФЕ домой</h1>
+            <a class="btn_order" href="/catalog"><h2 class="btn_order_text">Заказать</h2></a>
+        </div>
+    </div>
+
+    <div class="container_sells">
+        <div class="best_sells">
+            <h1>Лучшие товары</h1>
+            <div class="textcols">
+
+                <div class="textcols-item">
+                        <img class="img_cart" src="{% static 'images/cup_card_capuchino.png' %}" width="300" height="500" alt="">
+                        <h2 class="cart_name">Капучино</h2>
+                        <a class="btn_add_to_card" href="/catalog">Добавить в корзину</a>
+                </div>
+
+                        <div class="textcols-item">
+                        <img class="img_cart" src="{% static 'images/cup_card_raf.png' %}" width="300" height="500" alt="">
+                        <h2 class="cart_name">Раф</h2>
+                        <a class="btn_add_to_card" href="/catalog">Добавить в корзину</a>
+                </div>
+
+                        <div class="textcols-item">
+                        <img class="img_cart" src="{% static 'images/cup_card_latte.png' %}" width="300" height="500" alt="">
+                        <h2 class="cart_name">Латте</h2>
+                        <a class="btn_add_to_card" href="/catalog">Добавить в корзину</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
